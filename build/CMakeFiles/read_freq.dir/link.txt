@@ -1,0 +1,1 @@
+/apps/compilers/gcc/9.3.0/bin/g++  -O3 -O3 -DNDEBUG CMakeFiles/read_freq.dir/main.cpp.o -o read_freq   -L/apps/samtools/1.12/lib  -Wl,-rpath,/apps/samtools/1.12/lib -ldl -lpthread -lssl -lcrypto -lhts 

@@ -1,0 +1,3 @@
+/blue/kgraim/leslie.smith1/gnomadChromDownloads/Freq/build/CMakeFiles/rebuild_cache.dir
+/blue/kgraim/leslie.smith1/gnomadChromDownloads/Freq/build/CMakeFiles/edit_cache.dir
+/blue/kgraim/leslie.smith1/gnomadChromDownloads/Freq/build/CMakeFiles/read_freq.dir
