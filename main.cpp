@@ -1,3 +1,6 @@
+##Thanks to Marco Oliva: https://github.com/marco-oliva/pfp/blob/master/src/vcf.cpp
+
+
 #include <iostream>
 #include <CLI/CLI.hpp>
 #include <spdlog/spdlog.h>
