@@ -5,11 +5,12 @@
 #include <vcf.h>
 #include <vector>
 
-// Parsing inspired from https://github.com/marco-oliva/pfp/blob/master/src/vcf.cpp
+//Spacing and open/close functions from htslib example: http://wresch.github.io/2014/11/18/process-vcf-file-with-htslib.html
+//Variable naimg from samtools
+
 
 int main(int argc, char **argv)
 {
-
     CLI::App app("Frequencies reader");
     std::string vcf_file_name;
     std::string out_file;
@@ -36,8 +37,7 @@ int main(int argc, char **argv)
         bcf_hdr_destroy(hdr);
         std::exit(EXIT_FAILURE);
     }
-
-
+	
     std::ofstream out_file_stream(out_file);
     if (not out_file_stream.is_open()) { spdlog::error("Can't open output file {}", out_file); }
     else { spdlog::info("Writing output to {}", out_file); }
@@ -83,7 +83,6 @@ int main(int argc, char **argv)
         out_file_stream << "AC_amr_male=" << AC_amr_male2 <<";";
         out_file_stream << "AN_amr_male=" << AN_amr_male2 <<";";
         out_file_stream << "AF_amr_male=" << AF_amr_male2 << ";";
-
 	
 	//AMR_FEMALE
 	 bcf_info_t* AN_amr_female  = bcf_get_info(hdr, rec, "AN_amr_female");
@@ -342,10 +341,6 @@ int main(int argc, char **argv)
         out_file_stream << "AN_fin_female=" << AN_fin_female2 <<";";
         out_file_stream << "AF_fin_female=" << AF_fin_female2 <<";";
 	
-
-
-
-
 	//AFR_MALE------------------------------
 	bcf_info_t* AN_afr_male  = bcf_get_info(hdr, rec, "AN_afr_male");
         bcf_info_t* AC_afr_male  = bcf_get_info(hdr, rec, "AC_afr_male");
@@ -486,7 +481,6 @@ int main(int argc, char **argv)
         out_file_stream << "AN_nfe_bgr=" << AN_nfe_bgr2 <<";";
         out_file_stream << "AF_nfe_bgr=" << AF_nfe_bgr2 <<";";
 
-
         //African-American/Afircan ancestry
         bcf_info_t* AN_afr  = bcf_get_info(hdr, rec, "AN_afr");
         bcf_info_t* AC_afr  = bcf_get_info(hdr, rec, "AC_afr");
@@ -509,7 +503,6 @@ int main(int argc, char **argv)
         out_file_stream << "AC_afr=" << AC_afr2 <<";";
         out_file_stream << "AN_afr=" << AN_afr2 <<";";
         out_file_stream << "AF_afr=" << AF_afr2 <<";";
-
 
         //South Asian ancestry
         bcf_info_t* AN_sas  = bcf_get_info(hdr, rec, "AN_sas");
@@ -603,7 +596,6 @@ int main(int argc, char **argv)
         out_file_stream << "AC_eas=" << AC_eas2 <<";";
         out_file_stream << "AN_eas=" << AN_eas2 <<";";
         out_file_stream << "AF_eas=" << AF_eas2 <<";";
-
 
         //Swedish ancestry
         bcf_info_t* AN_nfe_swe  = bcf_get_info(hdr, rec, "AN_nfe_swe");
@@ -840,8 +832,6 @@ int main(int argc, char **argv)
 	out_file_stream << vep_val;    
 	out_file_stream << std::endl;
     }
-
-
 
     bcf_hdr_destroy(hdr);
     bcf_close(inf);
