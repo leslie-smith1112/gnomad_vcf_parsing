@@ -1,6 +1,3 @@
-##Thanks to Marco Oliva: https://github.com/marco-oliva/pfp/blob/master/src/vcf.cpp
-
-
 #include <iostream>
 #include <CLI/CLI.hpp>
 #include <spdlog/spdlog.h>
@@ -8,6 +5,7 @@
 #include <vcf.h>
 #include <vector>
 
+// Parsing inspired from https://github.com/marco-oliva/pfp/blob/master/src/vcf.cpp
 
 int main(int argc, char **argv)
 {
